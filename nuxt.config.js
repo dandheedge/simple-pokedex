@@ -1,4 +1,4 @@
-
+import axios from 'axios'
 export default {
   mode: 'spa',
   /*
@@ -51,6 +51,16 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+    }
+  },
+  generate: {
+    routes: function () {
+      return axios.get('https://pokeapi.co/api/v2/pokemon/?limit=964')
+      .then((res) => {
+        return res.data.results.map((pokemonName) => {
+          return '/detail/' + pokemonName.name
+        })
+      })
     }
   }
 }

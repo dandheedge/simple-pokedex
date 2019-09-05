@@ -9,7 +9,7 @@ let arrayPokemon = []
 export default {
   head() {
     return {
-      title: `Pokemon Detail - ${this.pokemonName}`
+      title: 'Pokemon Detail'
     }
   },
   components: {
@@ -77,9 +77,10 @@ export default {
       const myPokemonList = {}
       myPokemonList.name = this.pokemonCatch.name
       myPokemonList.type = this.pokemonDetail.information.name
+      console.log(myPokemonList)
       // // Push the new data (whether it be an object or anything else) onto the array
       arrayPokemon.push(myPokemonList);
-   
+      console.log(arrayPokemon)
       localStorage.setItem('myPokemonList', JSON.stringify(arrayPokemon))
       this.ModalText = 'Please go to your list to see the Pokemon.';
       this.confirmLoading = true
@@ -90,6 +91,7 @@ export default {
       }, 2000);
     },
     handleCancel(e) {
+      console.log('Clicked cancel button');
       this.visible = false
     },
     saveToLocalStorage() {
@@ -120,6 +122,13 @@ export default {
         this.pokemonColor = this.pokemonDetail.species.color.name
       }, 500)
     })
+    console.log(arrayPokemon)
+    // if(arrayPokemon == null) {
+    //   arrayPokemon.push(JSON.parse(localStorage.getItem('myPokemonList')))
+    //   console.log('masuk')
+    //   console.log(arrayPokemon)
+    //   localStorage.setItem('myPokemonList', JSON.stringify(arrayPokemon))
+    // }
   }
 }
 
