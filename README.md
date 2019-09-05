@@ -3,6 +3,8 @@ Pokedex simple web apps, using Nuxt.js and pokeapi. This app consist of three pa
 
 
 To running this apps:
-
+```
 $ npm install
-$ npm run dev # serve examples at localhost:8080
+
+$ npm run dev > # serve examples at localhost:8080
+```
