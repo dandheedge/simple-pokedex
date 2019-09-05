@@ -1,0 +1,14 @@
+.pokemon__list {{ pokemonList }}
+  a-row
+    template(v-for="pokemon in pokemonList")
+      a-col(:lg="8",:xs="12")
+        div.pokemon__list-item
+          img(
+          :alt="pokemon.name",
+          :src="generateImage(pokemon.type)",
+          class="pokemon__img"
+          )
+          a(
+          :href="`/detail/${pokemon.type}`",
+          class="pokemon__list-title"
+          ) {{ pokemon.name }}

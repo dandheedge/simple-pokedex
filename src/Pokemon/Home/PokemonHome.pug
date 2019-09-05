@@ -1,0 +1,22 @@
+.pokemon__list
+  a-row
+    template(v-for="pokemon in pokemonData")
+      a-col(:lg="8",:xs="12")
+        div.pokemon__list-item
+          img(
+          :alt="pokemon.name",
+          :src="generateImage(pokemon.name)",
+          class="pokemon__img"
+          )
+          a(
+          :href="`/detail/${pokemon.name}`",
+          class="pokemon__list-title"
+          ) {{ pokemon.name }}
+  a-row(type="flex", justify="center")
+    a-col(:span="2")
+      div(
+      v-if="nextUrl !== null"
+      id="scroll-trigger", 
+      ref="infinityscrolltrigger"
+      )
+        a-spin

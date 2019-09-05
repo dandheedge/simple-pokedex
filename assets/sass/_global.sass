@@ -1,0 +1,85 @@
+html, 
+body 
+  font-family: 'Manjari', sans-serif !important
+
+#app 
+  max-width: 1140px
+  margin: 0 auto
+  .ant 
+    &-layout 
+      background: #fff
+      &-header 
+        background: $red 
+        color: #fff
+        .header__title 
+          text-align: center
+          font-size: 24px
+        i 
+          font-size: 24px
+          vertical-align: -8px
+      &-sider
+        background: #fff
+    &-menu
+      &-horizontal
+        border: none
+      &-item
+        margin: 10px
+      &:not(.ant-menu-horizontal)
+        .ant-menu-item-selected
+          background: $red 
+          & > a 
+            color: #fff
+      &-inline 
+        .ant-menu-item
+          width: auto
+          &:after 
+            border-right: 3px solid $orange
+
+
+.wrapper
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+.pokeball
+  width: 60px
+  height: 60px
+  background-color: #fff
+  border-radius: 50% 
+  position: relative
+  overflow: hidden
+  border: 3px solid
+  animation: frames 1.2s  linear 0s infinite
+  margin: 100px auto
+  &:after 
+    content: ''
+    position: absolute
+    width: 60px
+    height: 65px
+    background-color: $orange
+    border-bottom: 4px solid
+    top: -4px
+  &:before
+    content: ''
+    position: absolute
+    background-color: #fff
+    width: 20px
+    height: 20px
+    border: 4px solid
+    border-radius: 50%
+    bottom: 17px
+    right: 16px
+    z-index: 1
+
+@keyframes frames
+  0% 
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+  
+
+
+
+
+ 

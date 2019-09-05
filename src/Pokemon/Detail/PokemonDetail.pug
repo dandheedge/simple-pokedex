@@ -1,0 +1,72 @@
+.pokemon__detail
+  a-modal(
+  :title="modalTitle",
+  :visible="visible",
+  :confirmLoading="confirmLoading") 
+    template(slot="footer")
+      a-button(key="back",@click="handleCancel") Return
+      a-button(key="submit",
+      type="primary",
+      :loading="loading",
+      @click="handleOk",
+      v-if="pokemonCatch.success") Add to My list
+    template(v-if="pokemonCatch.success")
+      .detail__modal
+        .catch__title: h4 Please give this Pokemon a name
+        input(v-model="pokemonCatch.name", placeholder="Pokemon Name") 
+    template(v-else="pokemonCatch.success")
+      .detail__modal
+        .catch__title: h4 You failed to catch this pokemon
+  a-row
+      template(v-if="!loading")
+        a-col(:lg="24",:xs="24") 
+          template(v-if="pokemonDetail")
+            .detail__background(:class="`bg--${pokemonDetail.species.color.name}`")
+              h3.detail__title {{ pokemonDetail.information.name }}
+              template(v-for="d in pokemonDetail.information.types") 
+                .detail__type(:class="`badge--${pokemonColor}`") {{ d.type.name }}
+            .detail__wrapper
+              img(:src="pokemonImage")
+              a-tabs(defaultActiveKey="1",@change="callback")
+                a-tab-pane(tab="About", key="1")
+                  a-row
+                    a-col(:lg="12",:xs="12") 
+                      div.detail-item 
+                        h4 Height
+                    a-col(:lg="12",:xs="12") 
+                      div.detail-item
+                        h4.highlight {{ pokemonDetail.information.height }}
+                    a-col(:lg="12",:xs="12")
+                      div.detail-item 
+                        h4 Weight
+                    a-col(:lg="12",:xs="12")
+                      div.detail-item
+                        h4.highlight {{ pokemonDetail.information.weight }}
+                    a-col(:lg="12",:xs="12")
+                      div.detail-item 
+                        h4 Abilities
+                    a-col(:lg="12",:xs="12")
+                      div.detail-item
+                        template(v-for="skill in pokemonDetail.information.abilities")
+                          h4.highlight 
+                            span {{ skill.ability.name }}
+                    a-col(:lg="12",:xs="12")
+                      div.detail-item 
+                        h4 Egg Groups
+                    a-col(:lg="12",:xs="12")
+                      div.detail-item
+                        template(v-for="egg in pokemonDetail.species.egg_groups")
+                          h4.highlight 
+                            span {{ egg.name }}
+                a-tab-pane(tab="Base Stats", key="2")
+                  horizontal-bar(:chartdata="chartdata", :options="options")
+                a-tab-pane(tab="Moves", key="3")
+                  template(v-for="val in pokemonDetail.information.moves")
+                    a-col(:lg="12",:xs="12") 
+                      div.detail-item
+                        h4.highlight {{ val.move.name }} 
+                a-tab-pane(tab="Catch Em !", key="4") 
+                  .detail__catch
+                    a(@click="catchPokemon"): img(src="/pokeball.png",class="detail--animate bounce")
+      template(v-else)
+        .pokeball

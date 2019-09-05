@@ -1,0 +1,140 @@
+.pokemon
+  &__detail
+    text-align: center
+    margin: 0 0 40px
+    .ant-tabs-bar
+        border-bottom: 1px solid transparent
+    .ant-tabs-nav
+      .ant-tabs-tab-active,
+      .ant-tabs-tab:hover
+        color: $orange
+    .ant-tabs-ink-bar
+      background: $orange
+
+.detail
+  &__title
+    text-transform: uppercase
+    font-size: 24px
+  &-item
+    margin-bottom: 20px
+    h4
+      font-weight: 400
+    h4.highlight
+      font-weight: 600
+  &__background
+    padding: 60px
+    border-bottom-left-radius: 10px
+    border-bottom-right-radius: 10px
+  &__wrapper
+    margin-top: -40px
+    background: #fff
+    border-radius: 10px
+  &__type 
+    display: inline-flex
+    padding: 0 10px
+    border-radius: 4px
+    margin: 0 20px
+  &__catch
+    margin: 80px 0
+  &--animate
+    animation-duration: 2s
+    animation-iteration-count: infinite
+  &__modal
+    input 
+      font-size: 14px
+      margin: 20px 0
+      width: 200px
+      border:
+        top: 0
+        right: 0
+        left: 0
+        bottom: 1px solid $orange
+      box-shadow: none
+      background: transparent
+      text-align: center
+      outline: none
+      padding: 10px 0
+
+.bg--black
+  background-color: $black
+  & > .detail__title
+    color: #fff
+.bg--blue
+  background-color: $blue
+  & > .detail__title
+    color: #fff
+.bg--brown
+  background-color: $brown
+  & > .detail__title
+    color: #fff
+.bg--gray
+  background-color: $gray
+  & > .detail__title
+    color: #fff
+.bg--green
+  background-color: $green
+  & > .detail__title
+    color: #fff
+.bg--pink
+  background-color: $pink
+  & > .detail__title
+    color: #fff
+.bg--purple
+  background-color: $purple
+  & > .detail__title
+    color: #fff
+.bg--red
+  background-color: $red
+  & > .detail__title
+    color: #fff
+.bg--white
+  background-color: $white
+.bg--yellow
+  background-color: $yellow
+
+
+
+.badge--black
+  background: lighten($black, 10%)
+  color: #fff
+.badge--blue
+  background: lighten($blue, 10%)
+  color: #fff
+.badge--brown
+  background: lighten($brown, 10%)
+  color: #fff
+.badge--gray
+  background: lighten($gray, 10%)
+  color: #fff
+.badge--green
+  background: lighten($green, 10%)
+  color: #fff
+.badge--pink
+  background: lighten($pink, 10%)
+  color: #fff
+.badge--purple
+  background: lighten($purple, 10%)
+  color: #fff
+.badge--red
+  background: lighten($red, 10%)
+  color: #fff
+.badge--white
+  background: lighten($white, 10%)
+.badge--yellow
+  background: lighten($yellow, 10%)
+
+.bounce
+  animation-name: bounce
+  animation-timing-function: ease
+    
+@keyframes bounce
+  0%   
+    transform: translateY(0) 
+  50%  
+    transform: translateY(-50px) 
+  100% 
+    transform: translateY(0) 
+    
+.ant-modal-content,
+.ant-modal-footer,
+  text-align: center !important

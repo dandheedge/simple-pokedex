@@ -1,0 +1,36 @@
+#app
+  a-layout
+    a-layout-sider(
+      :trigger="null",
+      collapsible,
+      collapsedWidth="0"
+      v-model="collapsed"
+    )
+      a-menu(
+        v-model="current",
+        mode="inline"
+      )
+        a-menu-item(key="home")
+          a(@click="setCurrent('home')", href="/") 
+            a-icon(type="home") 
+            | Home
+        a-menu-item(key="list")
+          a(@click="setCurrent('list')",href="/pokemon-list") 
+            a-icon(type="question") 
+            | My Pokemon List
+    a-layout
+      a-layout-header 
+        a-row(
+          type="flex",
+          justify="start"
+        )
+          a-col(:span="2")
+            a-icon(
+            class="trigger",
+            :type="collapsed ? 'menu-unfold' : 'menu-fold'",
+            @click="()=> collapsed = !collapsed")
+          a-col(:span="20")
+            .header__title Pokedex
+      a-layout-content
+        nuxt
+      
